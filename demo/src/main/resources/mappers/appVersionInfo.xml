@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.AppVersionInfoMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.example.demo.entity.AppVersionInfoEntity" id="AppVersionInfoEntity">
+        <id column="field_id" property="field_id"/>
+        <result column="gmt_create" property="gmt_create"/>
+        <result column="gmt_modified" property="gmt_modified"/>
+        <result column="new_version" property="new_version"/>
+        <result column="min_version" property="min_version"/>
+        <result column="download_url" property="download_url"/>
+        <result column="update_description" property="update_description"/>
+        <result column="force_update" property="force_update"/>
+        <result column="device_system" property="device_system"/>
+        <result column="public_time" property="public_time"/>
+    </resultMap>
+
+    <select id="listAppVersionInfoEntity" resultMap="AppVersionInfoEntity">
+        select * from app_version_info
+    </select>
+
+
+</mapper>
