@@ -5,6 +5,8 @@ import com.example.demo.entity.AppVersionInfoEntity;
 import java.util.List;
 
 public interface AppVersionInfoService {
-public List<AppVersionInfoEntity> getAppVersion();
+    public List<AppVersionInfoEntity> getAppVersion();
+
+    public int addVersionInfo(AppVersionInfoEntity appVersionInfoEntity);
 
 }

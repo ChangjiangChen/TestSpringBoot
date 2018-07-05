@@ -19,6 +19,10 @@
     <select id="listAppVersionInfoEntity" resultMap="AppVersionInfoEntity">
         select * from app_version_info
     </select>
-
+    <insert id="addVersionInfo" useGeneratedKeys="true"
+            keyProperty="field_id">
+        insert into app_version_info (gmt_create,gmt_modified,new_version,min_version,download_url,update_description,force_update,device_system,public_time)
+        values (#{gmt_create},#{gmt_modified},#{new_version},#{min_version},#{download_url},#{update_description},#{force_update},#{device_system},#{public_time})
+    </insert>
 
 </mapper>
