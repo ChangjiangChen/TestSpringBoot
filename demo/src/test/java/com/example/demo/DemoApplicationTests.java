@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.async.TestAsyncService;
 import com.example.demo.dao.AppVersionInfoMapper;
 import com.example.demo.entity.AppVersionInfoEntity;
 import com.example.demo.service.AppVersionInfoService;
@@ -12,6 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,6 +23,8 @@ public class DemoApplicationTests {
     AppVersionInfoMapper appVersionInfoMapper;
     @Autowired
     AppVersionInfoService appVersionInfoService;
+    @Autowired
+    TestAsyncService testAsyncService;
 
     //     如果想要关闭回滚，设置@Rollback(false)
 //    @Rollback(false)
@@ -45,6 +50,16 @@ public class DemoApplicationTests {
         appVersionInfoEntity.setPublic_time(new Date());
         appVersionInfoEntity.setUpdate_description("测试");
         System.out.println(appVersionInfoMapper.addVersionInfo(appVersionInfoEntity));
+    }
+    @Test
+    public void testAsyncFunction() throws ExecutionException, InterruptedException {
+        testAsyncService.asyncInvokeSimple();
+        testAsyncService.asyncInvokeWithParameters("test");
+        System.out.println("-------------------");
+        for (int i = 0; i <100 ; i++) {
+            Future<String> future = testAsyncService.asyncReturnFuture(i);
+            System.out.println(future.get());
+        }
     }
 
 }

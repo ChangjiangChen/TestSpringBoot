@@ -15,6 +15,7 @@ public class TestAspect {
 
     /**
      * 说明
+     *
      * @Aspect 指定一个类为切面类
      * @Pointcut("execution(* cn.itcast.e_aop_anno.*.*(..))")  指定切入点表达式
      * @Before("pointCut_()") 前置通知: 目标方法之前执行
@@ -26,16 +27,16 @@ public class TestAspect {
 
     //定义切点
     @Pointcut("execution(* com.example.demo.controller.*.*(..))")
-    private void controllerMethod(){}
+    private void controllerMethod() {
+    }
 
     @Before("controllerMethod()")
-    public void begin(JoinPoint joinPoint){
-
-        System.out.println("before..."+joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName()+" with param:"+ Arrays.toString(joinPoint.getArgs()));
+    public void begin(JoinPoint joinPoint) {
+        System.out.println("before..." + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + " with param:" + Arrays.toString(joinPoint.getArgs()));
     }
 
     @After("controllerMethod()")
-    public void after(){
+    public void after() {
         System.out.println("finish...");
     }
 
