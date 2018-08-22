@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.async.TestAsyncService;
+import com.example.demo.condition.example1.ListService;
 import com.example.demo.dao.AppVersionInfoMapper;
 import com.example.demo.entity.AppVersionInfoEntity;
 import com.example.demo.service.AppVersionInfoService;
@@ -8,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +25,8 @@ public class DemoApplicationTests {
     AppVersionInfoService appVersionInfoService;
     @Autowired
     TestAsyncService testAsyncService;
+    @Autowired
+    ListService listService;
 
     //     如果想要关闭回滚，设置@Rollback(false)
 //    @Rollback(false)
@@ -34,7 +36,7 @@ public class DemoApplicationTests {
         appVersionInfoService.addVersionInfo(null);
     }
 
-    //     开启回滚加@Transactional；如果想要关闭回滚，设置@Rollback(false)
+    //    开启回滚加@Transactional；如果想要关闭回滚，设置@Rollback(false)
 //    @Rollback(false)
     @Transactional
     @Test
@@ -51,15 +53,21 @@ public class DemoApplicationTests {
         appVersionInfoEntity.setUpdate_description("测试");
         System.out.println(appVersionInfoMapper.addVersionInfo(appVersionInfoEntity));
     }
+
     @Test
     public void testAsyncFunction() throws ExecutionException, InterruptedException {
         testAsyncService.asyncInvokeSimple();
         testAsyncService.asyncInvokeWithParameters("test");
         System.out.println("-------------------");
-        for (int i = 0; i <100 ; i++) {
+        for (int i = 0; i < 100; i++) {
             Future<String> future = testAsyncService.asyncReturnFuture(i);
             System.out.println(future.get());
         }
+    }
+
+    @Test
+    public void testConditionalAnnotation() {
+        System.out.println(listService.showListCmd());
     }
 
 }
