@@ -1,8 +1,8 @@
-package com.example.demo.service.serviceImpl;
+package com.example.demo.application.service.serviceImpl;
 
-import com.example.demo.dao.AppVersionInfoMapper;
-import com.example.demo.entity.AppVersionInfoEntity;
-import com.example.demo.service.AppVersionInfoService;
+import com.example.demo.application.dao.AppVersionInfoMapper;
+import com.example.demo.application.entity.AppVersionInfoEntity;
+import com.example.demo.application.service.AppVersionInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

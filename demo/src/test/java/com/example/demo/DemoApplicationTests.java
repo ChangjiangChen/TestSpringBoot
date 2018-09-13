@@ -2,9 +2,9 @@ package com.example.demo;
 
 import com.example.demo.async.TestAsyncService;
 import com.example.demo.condition.example1.ListService;
-import com.example.demo.dao.AppVersionInfoMapper;
-import com.example.demo.entity.AppVersionInfoEntity;
-import com.example.demo.service.AppVersionInfoService;
+import com.example.demo.application.dao.AppVersionInfoMapper;
+import com.example.demo.application.entity.AppVersionInfoEntity;
+import com.example.demo.application.service.AppVersionInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

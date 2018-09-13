@@ -1,8 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.application.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.demo.service.AppVersionInfoService;
-import com.example.demo.service.serviceImpl.AppVersionInfoServiceImpl;
+import com.example.demo.application.service.AppVersionInfoService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

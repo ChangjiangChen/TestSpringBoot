@@ -1,11 +1,13 @@
-package com.example.demo.dao;
+package com.example.demo.application.dao;
 
-import com.example.demo.entity.AppVersionInfoEntity;
+import com.example.demo.application.entity.AppVersionInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
+/**
+ * 对应xml中的<mapper namespace="com.example.demo.application.dao.AppVersionInfoMapper">
+ */
 @Mapper
 public interface AppVersionInfoMapper {
     List<AppVersionInfoEntity> listAppVersionInfoEntity();

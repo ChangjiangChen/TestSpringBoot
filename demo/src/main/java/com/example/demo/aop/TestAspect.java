@@ -26,7 +26,7 @@ public class TestAspect {
      */
 
     //定义切点
-    @Pointcut("execution(* com.example.demo.controller.*.*(..))")
+    @Pointcut("execution(* com.example.demo.application.controller.*.*(..))")
     private void controllerMethod() {
     }
 

@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.application.service;
 
-import com.example.demo.entity.AppVersionInfoEntity;
+import com.example.demo.application.entity.AppVersionInfoEntity;
 
 import java.util.List;
 
